@@ -7,17 +7,13 @@ import {
   ScrollView,
 } from "react-native";
 import React from "react";
-import { icons } from "../../constants";
+import { icons } from "../constants";
 
-const GameitemSub = () => {
+const Gameitems = () => {
   return (
     <>
       <ScrollView
-        style={{
-          gap: 10,
-          display: "flex",
-          flexDirection: "row",
-        }}
+        style={{ gap: 10, display: "flex", flexDirection: "row" }}
         horizontal={true}
         showsHorizontalScrollIndicator={false}
       >
@@ -27,9 +23,9 @@ const GameitemSub = () => {
               <Image
                 style={styles.imageContainer}
                 resizeMode="contain"
-                source={icons.nhl}
+                source={icons.nba}
               />
-              <Text style={styles.textContainer}>NHL</Text>
+              <Text style={styles.textContainer}>NBA Finals</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.mainContainer}>
@@ -37,9 +33,9 @@ const GameitemSub = () => {
               <Image
                 style={styles.imageContainer}
                 resizeMode="contain"
-                source={icons.mets}
+                source={icons.mlb}
               />
-              <Text style={styles.textContainer}>Mets</Text>
+              <Text style={styles.textContainer}>MLB</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.mainContainer}>
@@ -47,9 +43,9 @@ const GameitemSub = () => {
               <Image
                 style={styles.imageContainer}
                 resizeMode="contain"
-                source={icons.phillies}
+                source={icons.yankees}
               />
-              <Text style={styles.textContainer}>Phillies</Text>
+              <Text style={styles.textContainer}>Yankees</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.mainContainer}>
@@ -57,9 +53,9 @@ const GameitemSub = () => {
               <Image
                 style={styles.imageContainer}
                 resizeMode="contain"
-                source={icons.franceflag}
+                source={icons.pgatour}
               />
-              <Text style={styles.textContainer}>French Open Woman</Text>
+              <Text style={styles.textContainer}>PGA TOUR</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.mainContainer}>
@@ -77,9 +73,9 @@ const GameitemSub = () => {
               <Image
                 style={styles.imageContainer}
                 resizeMode="contain"
-                source={icons.streaming}
+                source={icons.usaflag}
               />
-              <Text style={styles.textContainer}>Streaming</Text>
+              <Text style={styles.textContainer}>WNBA</Text>
             </View>
           </TouchableOpacity>
           <TouchableOpacity style={styles.mainContainer}>
@@ -87,9 +83,9 @@ const GameitemSub = () => {
               <Image
                 style={styles.imageContainer}
                 resizeMode="contain"
-                source={icons.criket}
+                source={icons.nfl}
               />
-              <Text style={styles.textContainer}>T20 World Cup</Text>
+              <Text style={styles.textContainer}>NFL</Text>
             </View>
           </TouchableOpacity>
         </View>
@@ -98,7 +94,7 @@ const GameitemSub = () => {
   );
 };
 
-export default GameitemSub;
+export default Gameitems;
 
 const styles = StyleSheet.create({
   mainContainer: {

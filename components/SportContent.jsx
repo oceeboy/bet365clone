@@ -8,109 +8,14 @@ import {
   Dimensions,
 } from "react-native";
 import { images, icons } from "../constants";
-import SportsComponent from "../app/components/sportsComponent";
+import SportsComponent from "./sportsComponent";
 import { LinearGradient } from "expo-linear-gradient";
+import BetComponentBox from "./BetComponentBox";
+import TicketInfoComponent from "./TicketInfoComponent";
 
 const { width } = Dimensions.get("window");
 const SportContent = () => {
   const [selectedOption, setSelectedOption] = useState("Sports");
-
-  const BetComponentBox = () => {
-    return (
-      <View style={styles.component}>
-        <View style={styles.componentBox}>
-          <View
-            style={{
-              flexDirection: "row",
-              alignItems: "flex-end",
-              justifyContent: "space-between",
-              marginHorizontal: 10,
-              marginTop: 40,
-              zIndex: 1,
-            }}
-          >
-            <View style={{ flexDirection: "column", gap: 8 }}>
-              <Text
-                style={{
-                  fontSize: 14,
-                  fontWeight: "bold",
-                  color: "#EDECEB",
-                }}
-              >
-                Baseball
-              </Text>
-              <Text
-                style={{
-                  fontSize: 22.06,
-                  fontWeight: "bold",
-                  color: "#EDB08D",
-                  letterSpacing: 1,
-                }}
-              >
-                MLB
-              </Text>
-            </View>
-
-            <TouchableOpacity style={styles.gameLinesBox}>
-              <Text style={styles.gameLinesBoxText}>Game Lines</Text>
-              <Image
-                style={styles.gameLinesBoxImg}
-                source={icons.arrowright}
-                resizeMode="contain"
-              />
-            </TouchableOpacity>
-          </View>
-          <View
-            style={{
-              position: "absolute",
-              justifyContent: "flex-start",
-              alignItems: "flex-end",
-              width: width,
-              top: -10,
-              left: 11,
-            }}
-          >
-            <View
-              style={{
-                width: 190,
-                height: 175,
-
-                justifyContent: "flex-start",
-                alignItems: "center",
-                overflow: "hidden",
-                marginLeft: 10,
-              }}
-            >
-              <Image
-                style={{ width: 201, height: 250 }}
-                source={images.baseballplayer}
-                resizeMode="contain"
-              />
-            </View>
-          </View>
-        </View>
-      </View>
-    );
-  };
-
-  const TicketInfoComponent = () => {
-    return (
-      <>
-        <View
-          style={{
-            justifyContent: "center",
-            alignItems: "center",
-            width: width,
-            height: 200,
-          }}
-        >
-          <Text style={{ color: "white", fontWeight: "bold", fontSize: "20" }}>
-            betInfo FlatList to be render
-          </Text>
-        </View>
-      </>
-    );
-  };
 
   return (
     <View style={styles.container}>
@@ -192,7 +97,16 @@ const SportContent = () => {
           end={{ x: 1, y: 1 }}
         >
           <BetComponentBox />
-          <TicketInfoComponent />
+          <View
+            style={{
+              marginHorizontal: 10,
+              justifyContent: "center",
+              alignItems: "center",
+              marginTop: 20,
+            }}
+          >
+            <TicketInfoComponent />
+          </View>
         </LinearGradient>
       )}
       {selectedOption === "Top Events" && (

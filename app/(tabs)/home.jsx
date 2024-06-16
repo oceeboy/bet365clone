@@ -10,11 +10,11 @@ import {
   Button,
 } from "react-native";
 
-import HeaderBar from "../components/header";
+import HeaderBar from "../../components/header";
 import { StatusBar } from "expo-status-bar";
-import CarouselComp from "../components/carousel";
+import CarouselComp from "../../components/carousel";
 import React, { useState } from "react";
-import GameCategory from "../components/gameCategory";
+import GameCategory from "../../components/gameCategory";
 import { Provider as PaperProvider } from "react-native-paper";
 
 import { SplashScreen, Stack } from "expo-router";

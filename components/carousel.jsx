@@ -8,7 +8,7 @@ import {
 } from "react-native";
 
 import Banner from "./Banner";
-import { images } from "../../constants";
+import { images } from "../constants";
 import React, { useState, useRef } from "react";
 
 const { width } = Dimensions.get("window");

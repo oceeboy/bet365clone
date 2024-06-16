@@ -7,7 +7,7 @@ import {
   ScrollView,
 } from "react-native";
 import React from "react";
-import { icons } from "../../constants";
+import { icons } from "../constants";
 
 const SportsCategory = () => {
   return (

@@ -1,6 +1,6 @@
 import { StyleSheet, Text, TouchableOpacity, View, Image } from "react-native";
 import React from "react";
-import { icons } from "../../constants";
+import { icons } from "../constants";
 
 const HeaderBar = () => {
   const checkState = () => {
