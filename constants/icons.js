@@ -47,6 +47,8 @@ import rleague from "../assets/icons/rleague.png";
 import betcircle from "../assets/icons/betcircle.png";
 import arrowboost from "../assets/icons/arrowboost.png";
 import arrowright from "../assets/icons/arrowright.png";
+import ticketarrowboost from "../assets/icons/ticketarrowboost.png";
+import ticketliveplay from "../assets/icons/ticketliveplay.png";
 export default {
   home,
   sports,
@@ -97,4 +99,6 @@ export default {
   betcircle,
   arrowboost,
   arrowright,
+  ticketarrowboost,
+  ticketliveplay,
 };

@@ -6,12 +6,14 @@ import {
   Text,
   Image,
   Dimensions,
+  FlatList,
 } from "react-native";
-import { images, icons } from "../constants";
+import { images, icons, mockData, data } from "../constants";
 import SportsComponent from "./sportsComponent";
 import { LinearGradient } from "expo-linear-gradient";
 import BetComponentBox from "./BetComponentBox";
 import TicketInfoComponent from "./TicketInfoComponent";
+import TicketScreen from "./TicketScreen";
 
 const { width } = Dimensions.get("window");
 const SportContent = () => {
@@ -99,13 +101,12 @@ const SportContent = () => {
           <BetComponentBox />
           <View
             style={{
-              marginHorizontal: 10,
               justifyContent: "center",
               alignItems: "center",
               marginTop: 20,
             }}
           >
-            <TicketInfoComponent />
+            <TicketScreen />
           </View>
         </LinearGradient>
       )}

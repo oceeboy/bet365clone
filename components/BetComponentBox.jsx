@@ -7,6 +7,7 @@ import {
   Dimensions,
   TouchableOpacity,
 } from "react-native";
+import { LinearGradient } from "expo-linear-gradient";
 import { images, icons } from "../constants";
 
 const { width } = Dimensions.get("window");
@@ -70,7 +71,7 @@ const BetComponentBox = () => {
             style={{
               width: 190,
               height: 175,
-
+              position: "relative",
               justifyContent: "flex-start",
               alignItems: "center",
               overflow: "hidden",
@@ -82,6 +83,27 @@ const BetComponentBox = () => {
               source={images.baseballplayer}
               resizeMode="contain"
             />
+            {/* <View
+              style={{
+                height: "30%",
+                width: "100%",
+                opacity: 50,
+                position: "absolute",
+                bottom: 0,
+              }}
+            >
+              <LinearGradient
+                style={{
+                  width: "100%",
+                  height: "100%",
+                  overflow: "visible",
+                  opacity: 50,
+                }}
+                colors={["rgba(55, 45, 40, 0.5)", "#2E2A29"]}
+                start={{ x: -0.09, y: -0.75 }}
+                end={{ x: 1.3, y: 0.48 }}
+              />
+            </View> */}
           </View>
         </View>
       </View>

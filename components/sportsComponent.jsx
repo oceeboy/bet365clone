@@ -17,7 +17,7 @@ const SportsComponent = () => {
           <View style={styles.itemHeaderContainer}>
             <Image
               style={styles.itemHeaderImage}
-              source={icons.soocerball}
+              source={item.icon}
               resizeMode="contain"
             />
             <Text style={styles.itemHeaderText}>{item.description}</Text>
@@ -25,7 +25,7 @@ const SportsComponent = () => {
         </View>
         <View style={styles.betbuilderConent}>
           <View style={styles.subheader}>
-            <Text style={styles.subheaderText}>Bet Builder</Text>
+            <Text style={styles.subheaderText}>{item.subheader}</Text>
           </View>
           {item.betOptions.map((option, index) => (
             <View key={index} style={styles.betbuilderInfo}>
@@ -43,7 +43,7 @@ const SportsComponent = () => {
       <View style={styles.betbuilderOddsContainer}>
         <TouchableOpacity style={styles.betbuilderOdds}>
           <View style={[styles.container]}>
-            <Text style={styles.betbuilderOddsstriked}>+473</Text>
+            <Text style={styles.betbuilderOddsstriked}>{item.odds}</Text>
             <View style={styles.strikethrough} />
           </View>
 
@@ -52,7 +52,7 @@ const SportsComponent = () => {
             source={icons.arrowboost}
             resizeMode="contain"
           />
-          <Text style={styles.betbuilderOddsUpdated}>+548</Text>
+          <Text style={styles.betbuilderOddsUpdated}>{item.oddsupdated}</Text>
         </TouchableOpacity>
       </View>
     </TouchableOpacity>
