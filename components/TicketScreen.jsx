@@ -1,13 +1,13 @@
 import React from "react";
 import { View, FlatList } from "react-native";
 import TicketInfoComponent from "./TicketInfoComponent";
-import { data } from "../constants";
+import { mlbGameData } from "../constants";
 
 const TicketScreen = () => {
-  const width = data.length > 0 ? 270 : 410; // adjust width based on data length
+  const width = mlbGameData.length > 0 ? 270 : 410; // adjust width based on data length
   return (
     <FlatList
-      data={data}
+      data={mlbGameData}
       horizontal
       keyExtractor={(item) => item.id}
       renderItem={({ item }) => (

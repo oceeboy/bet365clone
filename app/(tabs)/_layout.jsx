@@ -1,6 +1,6 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import { Tabs, Redirect } from "expo-router";
-import { icons } from "../../constants";
+import { betBalance, icons } from "../../constants";
 
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
@@ -23,8 +23,8 @@ const TabIcon = ({ icon, color, name, focused }) => {
             : styles.tabiconImageDefault
         }
       />
-      <Text
-        className={`${focused ? "font-psemibold" : "font-pregular"} text-xs`}
+      <Text // nene to chage to Inter semibold and Regular
+        className={`${focused ? "font-ibold" : "font-iregular"} text-xs`}
         style={
           focused === true
             ? styles.tabIconTextActive
@@ -144,7 +144,7 @@ const TabsLayout = () => {
               <TabIcon
                 icon={focused === true ? icons.home : icons.inactivehome}
                 color={color}
-                name="Home"
+                name={betBalance.balance}
                 focused={focused}
               />
             ),

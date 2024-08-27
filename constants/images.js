@@ -6,6 +6,8 @@ import pbbBaseball from "../assets/images/pbbBaseball.png";
 import openanaccountnow from "../assets/images/openanaccountnow.png";
 import betboost from "../assets/images/betboost.png";
 import baseballplayer from "../assets/images/baseballplayer.png";
+import earlypayout from "../assets/images/earlypayout.png";
+import parlayboost from "../assets/images/parlayboost.png";
 
 export default {
   basketballbgimage,
@@ -16,4 +18,6 @@ export default {
   openanaccountnow,
   betboost,
   baseballplayer,
+  earlypayout,
+  parlayboost,
 };

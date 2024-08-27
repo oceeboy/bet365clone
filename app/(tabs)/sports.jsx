@@ -1,16 +1,26 @@
-import { StyleSheet, Text, View } from "react-native";
-import { Provider as PaperProvider } from "react-native-paper";
+import { ActivityIndicator, StyleSheet, Text, View } from "react-native";
+
 import React from "react";
-import SportContent from "../../components/SportContent";
+
+import { SafeAreaView } from "react-native-safe-area-context";
 
 const SportPage = () => {
   return (
-    <PaperProvider>
-      <SportContent />
-    </PaperProvider>
+    <SafeAreaView style={styles.safeArea}>
+      <View>
+        <ActivityIndicator color="green" size="large" />
+      </View>
+    </SafeAreaView>
   );
 };
 
 export default SportPage;
 
-const styles = StyleSheet.create({});
+const styles = StyleSheet.create({
+  safeArea: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "#282828",
+  },
+});

@@ -5,6 +5,7 @@ module.exports = {
       colors: {
         primary: "#282828",
         subprimary: "#383838",
+        customwhite: "#A0AEAB",
         secondary: {
           DEFAULT: "#FF9C01",
           100: "#FF9001",
@@ -29,6 +30,8 @@ module.exports = {
         pbold: ["Poppins-Bold", "sans-serif"],
         pextrabold: ["Poppins-ExtraBold", "sans-serif"],
         pblack: ["Poppins-Black", "sans-serif"],
+        ibold: ["Inter-Bold"],
+        iregular: ["Inter-Regular"],
       },
     },
   },

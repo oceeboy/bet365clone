@@ -16,6 +16,9 @@ const RootLayout = () => {
     "Poppins-Regular": require("../assets/fonts/Poppins-Regular.ttf"),
     "Poppins-SemiBold": require("../assets/fonts/Poppins-SemiBold.ttf"),
     "Poppins-Thin": require("../assets/fonts/Poppins-Thin.ttf"),
+    "Inter-Bold": require("../assets/fonts/Inter_18pt-Bold.ttf"),
+    "Inter-Regular": require("../assets/fonts/Inter_18pt-Regular.ttf"),
+    "Inter-ExtraBold": require("../assets/fonts/Inter_18pt-ExtraBold.ttf"),
   });
 
   useEffect(() => {
@@ -42,7 +45,6 @@ const RootLayout = () => {
         <Stack.Screen name="(auth)" options={{ headerShown: false }} />
       </Stack>
     </GlobalProvider>
-    // insted od use the stack you can use the <Slot/> to view the index page of your app
   );
 };
 

@@ -19,13 +19,19 @@ import { Provider as PaperProvider } from "react-native-paper";
 
 import { SplashScreen, Stack } from "expo-router";
 import SportContent from "../../components/SportContent";
+import BannerWelcome from "../../modules/home/components/BannerWelcome";
 SplashScreen.preventAutoHideAsync();
 const HomePage = () => {
+  const [modalVisible, setModalVisible] = useState(false);
+  const openModal = () => {
+    setModalVisible(true);
+  };
+
   return (
     <SafeAreaView style={styles.safeArea}>
       <StatusBar style="light" />
-      <View>
-        <HeaderBar />
+      <View style={{ marginTop: 0 }}>
+        <HeaderBar onPress={openModal} />
       </View>
 
       <ScrollView
@@ -35,7 +41,11 @@ const HomePage = () => {
         }}
       >
         <View style={{ marginBottom: 10 }}>
-          <CarouselComp />
+          {
+            <BannerWelcome />
+
+            /* <CarouselComp /> */
+          }
         </View>
         <View style={{ marginTop: 10 }}>
           <GameCategory />
@@ -46,6 +56,30 @@ const HomePage = () => {
           </PaperProvider>
         </View>
       </ScrollView>
+      <Modal
+        animationType="slide"
+        visible={modalVisible}
+        onRequestClose={() => {
+          setModalVisible(!modalVisible);
+        }}
+        presentationStyle="pageSheet"
+      >
+        <View style={{ flex: 1, backgroundColor: "#fff" }}>
+          <TouchableOpacity
+            style={{
+              height: 24,
+              backgroundColor: "#fff",
+              justifyContent: "center",
+              alignItems: "center",
+              marginLeft: 20,
+              marginTop: 100,
+            }}
+            onPress={() => setModalVisible(!modalVisible)}
+          >
+            <Text>close</Text>
+          </TouchableOpacity>
+        </View>
+      </Modal>
     </SafeAreaView>
   );
 };

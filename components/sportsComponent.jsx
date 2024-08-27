@@ -8,54 +8,135 @@ import {
   TouchableOpacity,
 } from "react-native";
 import { icons, mockData } from "../constants";
+import { formatNumber } from "../modules/mybets/constants";
 
 const SportsComponent = () => {
   const BetBoostItem = ({ item }) => (
-    <TouchableOpacity style={styles.itemContainer}>
-      <View style={styles.betbuilder}>
-        <View style={styles.betbuilderHeader}>
-          <View style={styles.itemHeaderContainer}>
-            <Image
-              style={styles.itemHeaderImage}
-              source={item.icon}
-              resizeMode="contain"
-            />
-            <Text style={styles.itemHeaderText}>{item.description}</Text>
+    // <TouchableOpacity style={styles.itemContainer}>
+    //   <View style={styles.betbuilder}>
+    //     <View style={styles.betbuilderHeader}>
+    //       <View style={styles.itemHeaderContainer}>
+    //         <Image
+    //           style={styles.itemHeaderImage}
+    //           source={item.icon}
+    //           resizeMode="contain"
+    //         />
+    //         <Text style={styles.itemHeaderText}>{item.description}</Text>
+    //       </View>
+    //     </View>
+    //     <View style={styles.betbuilderConent}>
+    //       <View style={styles.subheader}>
+    //         <Text style={styles.subheaderText}>{item.subheader}</Text>
+    //       </View>
+    //       {item.betOptions.map((option, index) => (
+    //         <View key={index} style={styles.betbuilderInfo}>
+    //           <Image
+    //             style={styles.imgBetcircle}
+    //             source={icons.betcircle}
+    //             resizeMode="contain"
+    //           />
+    //           <Text style={styles.betbuilderText}>{option}</Text>
+    //         </View>
+    //       ))}
+    //     </View>
+    //   </View>
+
+    //   <View style={styles.betbuilderOddsContainer}>
+    //     <TouchableOpacity style={styles.betbuilderOdds}>
+    //       <View style={[styles.container]}>
+    //         <Text style={styles.betbuilderOddsstriked}>
+    //           {formatNumber(item.odds, item.oddtype)}
+    //         </Text>
+    //         <View style={styles.strikethrough} />
+    //       </View>
+
+    //       <Image
+    //         style={styles.arrowboostOdds}
+    //         source={icons.arrowboost}
+    //         resizeMode="contain"
+    //       />
+    //       <Text style={styles.betbuilderOddsUpdated}>
+    //         {formatNumber(item.oddsupdated, item.oddtype)}
+    //       </Text>
+    //     </TouchableOpacity>
+    //   </View>
+    // </TouchableOpacity>
+    <View style={styles.container}>
+      <View style={styles.padCN}>
+        <View style={styles.rowGap8}>
+          <Image
+            source={item.icon}
+            style={{
+              width: 14,
+              height: 14,
+              resizeMode: "contain",
+            }}
+          />
+          <View>
+            <Text style={styles.headerText}>{item.description}</Text>
           </View>
         </View>
-        <View style={styles.betbuilderConent}>
-          <View style={styles.subheader}>
-            <Text style={styles.subheaderText}>{item.subheader}</Text>
-          </View>
-          {item.betOptions.map((option, index) => (
-            <View key={index} style={styles.betbuilderInfo}>
-              <Image
-                style={styles.imgBetcircle}
-                source={icons.betcircle}
-                resizeMode="contain"
-              />
-              <Text style={styles.betbuilderText}>{option}</Text>
+        <View>
+          <Text
+            className=" font-ibold text-customwhite "
+            style={{ fontSize: 12 }}
+          >
+            {item.subheader}
+          </Text>
+        </View>
+        <View>
+          {item.betOptions.map((options, index) => (
+            <View key={index} style={styles.optionsContainer}>
+              <View
+                style={{
+                  width: 15,
+                  height: 15,
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <View
+                  style={{
+                    width: 6,
+                    height: 6,
+                    borderWidth: 1,
+                    borderRadius: 6 / 2,
+                    borderColor: "#AABAB9",
+                  }}
+                />
+              </View>
+
+              <Text
+                style={{
+                  fontFamily: "Inter-Regular",
+                  fontSize: 14,
+                  color: "#AABAB9",
+                }}
+              >
+                {options}
+              </Text>
             </View>
           ))}
         </View>
       </View>
-
-      <View style={styles.betbuilderOddsContainer}>
-        <TouchableOpacity style={styles.betbuilderOdds}>
-          <View style={[styles.container]}>
-            <Text style={styles.betbuilderOddsstriked}>{item.odds}</Text>
+      <View style={styles.buttonContainer}>
+        <View style={styles.rowGap8}>
+          <View style={styles.oddsContainer}>
+            <Text style={styles.odds}>
+              {formatNumber(item.odds, item.oddtype)}
+            </Text>
             <View style={styles.strikethrough} />
           </View>
-
           <Image
-            style={styles.arrowboostOdds}
             source={icons.arrowboost}
-            resizeMode="contain"
+            style={{ width: 14, height: 14, resizeMode: "contain" }}
           />
-          <Text style={styles.betbuilderOddsUpdated}>{item.oddsupdated}</Text>
-        </TouchableOpacity>
+          <Text style={styles.oddsupdated}>
+            {formatNumber(item.oddsupdated, item.oddtype)}
+          </Text>
+        </View>
       </View>
-    </TouchableOpacity>
+    </View>
   );
   return (
     <FlatList
@@ -69,98 +150,53 @@ const SportsComponent = () => {
 };
 
 const styles = StyleSheet.create({
-  itemContainer: {
+  container: {
+    minHeight: 197,
+    minWidth: 260,
+    borderWidth: 1,
+    borderColor: "#325046",
+    backgroundColor: "#1A2E2C", // will need to create the gradient
     margin: 5,
-    backgroundColor: "#13352E",
-    borderRadius: 5,
+    borderRadius: 6,
+    justifyContent: "space-between",
   },
-  betbuilderHeader: {
-    justifyContent: "flex-start",
-    width: "100%",
-    alignItems: "flex-start",
-  },
-  itemHeaderContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 5,
-  },
-  itemHeaderImage: {
-    width: 12,
-    height: 12,
-  },
-  itemHeaderText: {
-    fontSize: 12.75,
-    fontWeight: "bold",
-    color: "#FFFFFF",
-  },
-  betbuilder: {
-    flexDirection: "column",
-    justifyContent: "flex-start",
-    alignItems: "flex-start",
 
-    paddingEnd: 40,
-    paddingStart: 10,
-    paddingTop: 20,
-    paddingBottom: 10,
+  padCN: {
+    padding: 20,
+    gap: 13,
   },
-  betbuilderConent: {
-    justifyContent: "flex-start",
-    width: "100%",
-    marginTop: 5,
-  },
-  subheader: {
+  rowGap8: {
     flexDirection: "row",
-    justifyContent: "flex-start",
+    gap: 8,
     alignItems: "center",
-    gap: 5,
   },
-  subheaderText: {
-    fontSize: 12,
-    fontWeight: "bold",
-    color: "#A0AEAB",
-  },
-  imgBetcircle: {
-    height: 5,
-    width: 5,
-  },
-  betbuilderText: {
-    fontSize: 12,
-    color: "#A0AEAB",
-  },
-  betbuilderInfo: {
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    gap: 5,
-    marginTop: 10,
-  },
-  betbuilderOdds: {
-    flexDirection: "row",
-    justifyContent: "center",
-    alignItems: "center",
-    gap: 10,
-  },
-  arrowboostOdds: {
-    height: 9,
-    width: 11,
-  },
-  betbuilderOddsstriked: {
+
+  headerText: {
     fontSize: 14,
-    color: "#A0AEAB",
+    color: "#fff",
   },
-  betbuilderOddsUpdated: {
-    fontSize: 20,
-    color: "white",
-    fontWeight: "bold",
-  },
-  betbuilderOddsContainer: {
-    width: 240,
-    height: 45,
-    justifyContent: "center",
+
+  // optionsContainer
+
+  optionsContainer: {
+    flexDirection: "row",
+    gap: 10,
     alignItems: "center",
+    marginVertical: 5,
+  },
+
+  // button
+  buttonContainer: {
+    minHeight: 50,
+    alignItems: "center",
+    justifyContent: "center",
     borderTopWidth: 1,
-    borderTopColor: "#294741",
+    borderColor: "#324B47",
+  },
+
+  // odds
+  oddsContainer: {
+    position: "relative",
   },
   strikethrough: {
     position: "absolute",
@@ -168,12 +204,19 @@ const styles = StyleSheet.create({
     left: 0,
     right: 0,
     height: 1,
+    minWidth: 30,
     backgroundColor: "#A0AEAB",
-    transform: [{ rotate: "10deg" }],
+    transform: [{ rotate: "15deg" }],
   },
-  container: {
-    position: "relative",
+  odds: {
+    fontSize: 15,
+    fontFamily: "Inter-Regular",
+    color: "#AFC3C1",
+  },
+  oddsupdated: {
+    fontSize: 20,
+    color: "#fff",
+    fontFamily: "Inter-Bold",
   },
 });
-
 export default SportsComponent;

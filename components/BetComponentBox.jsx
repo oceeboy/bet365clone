@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -16,46 +16,85 @@ const BetComponentBox = () => {
   return (
     <View style={styles.component}>
       <View style={styles.componentBox}>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "flex-end",
-            justifyContent: "space-between",
-            marginHorizontal: 10,
-            marginTop: 40,
-            zIndex: 1,
-          }}
-        >
-          <View style={{ flexDirection: "column", gap: 8 }}>
+        <View style={{ flexDirection: "column", zIndex: 1 }}>
+          <View
+            style={{
+              flexDirection: "row",
+              alignItems: "flex-end",
+              justifyContent: "space-between",
+              marginHorizontal: 10,
+              marginTop: 40,
+            }}
+          >
+            <View style={{ flexDirection: "column", gap: 8 }}>
+              <Text
+                style={{
+                  fontSize: 14,
+                  fontWeight: "bold",
+                  color: "#EDECEB",
+                }}
+              >
+                Baseball
+              </Text>
+              <Text
+                style={{
+                  fontSize: 22.06,
+                  fontWeight: "bold",
+                  color: "#EDB08D",
+                  letterSpacing: 1,
+                }}
+              >
+                MLB
+              </Text>
+              <View
+                style={{
+                  flexDirection: "row",
+                  gap: 5,
+                  alignItems: "flex-start",
+                  width: "100%",
+                }}
+              >
+                <Image
+                  style={{ width: 50, height: 24 }}
+                  resizeMode="contain"
+                  source={images.earlypayout}
+                />
+                <Image
+                  style={{ width: 50, height: 24 }}
+                  resizeMode="contain"
+                  source={images.parlayboost}
+                />
+              </View>
+            </View>
+            <View>
+              <TouchableOpacity style={styles.gameLinesBox}>
+                <Text style={styles.gameLinesBoxText}>Game Lines</Text>
+                <Image
+                  style={styles.gameLinesBoxImg}
+                  source={icons.arrowright}
+                  resizeMode="contain"
+                />
+              </TouchableOpacity>
+            </View>
+          </View>
+          <View
+            style={{
+              alignItems: "flex-start",
+              width: "100%",
+              paddingVertical: 7,
+            }}
+          >
             <Text
               style={{
-                fontSize: 14,
-                fontWeight: "bold",
-                color: "#EDECEB",
+                color: "#ffffff",
+                fontSize: 11,
+                lineHeight: 13,
+                paddingLeft: 7,
               }}
             >
-              Baseball
-            </Text>
-            <Text
-              style={{
-                fontSize: 22.06,
-                fontWeight: "bold",
-                color: "#EDB08D",
-                letterSpacing: 1,
-              }}
-            >
-              MLB
+              Excludes Live In Game matches
             </Text>
           </View>
-
-          <TouchableOpacity style={styles.gameLinesBox}>
-            <Text style={styles.gameLinesBoxText}>Game Lines</Text>
-            <Image
-              style={styles.gameLinesBoxImg}
-              source={icons.arrowright}
-              resizeMode="contain"
-            />
-          </TouchableOpacity>
         </View>
         <View
           style={{

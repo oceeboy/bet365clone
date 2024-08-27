@@ -8,11 +8,11 @@ import {
   Dimensions,
   FlatList,
 } from "react-native";
-import { images, icons, mockData, data } from "../constants";
+import { images } from "../constants";
 import SportsComponent from "./sportsComponent";
 import { LinearGradient } from "expo-linear-gradient";
 import BetComponentBox from "./BetComponentBox";
-import TicketInfoComponent from "./TicketInfoComponent";
+
 import TicketScreen from "./TicketScreen";
 
 const { width } = Dimensions.get("window");
@@ -91,7 +91,8 @@ const SportContent = () => {
         <LinearGradient
           style={{
             width: width,
-            height: 300,
+            height: "auto",
+            paddingBottom: 40,
             overflow: "visible",
           }}
           colors={["#4C3D36", "#383838"]}
