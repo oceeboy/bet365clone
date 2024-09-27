@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { formatCurrency } from "../constants";
 
-const TicketFooter = ({ wager, returned }) => {
+const TicketFooter = ({ wager, returned, stats }) => {
   return (
     <View style={styles.container}>
       <View style={styles.columnGap}>
@@ -10,7 +10,9 @@ const TicketFooter = ({ wager, returned }) => {
         <Text style={styles.amountText}>{formatCurrency(wager)}</Text>
       </View>
       <View style={styles.columnGap}>
-        <Text style={styles.labelText}>Return</Text>
+        <Text style={styles.labelText}>
+          {stats === "cashout" ? "Total To Return" : "Return"}
+        </Text>
         <Text style={styles.amountText}>{formatCurrency(returned)}</Text>
       </View>
     </View>

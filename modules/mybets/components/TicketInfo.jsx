@@ -2,18 +2,37 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { formatNumber } from "../constants";
 import WinIcon from "../../svgstore/components/WinIcon";
+import NotPlayed from "../../svgstore/components/NotPlayed";
 
-const TicketInfo = ({ team, odds, bookings, selected, oddtype }) => {
+const TicketInfo = ({
+  team,
+  odds,
+  bookings,
+  selected,
+  oddtype,
+  status,
+  dateTime,
+  stats,
+}) => {
   return (
     <View style={styles.container}>
       <View style={styles.rowGap}>
         <View style={{ height: 18, justifyContent: "center" }}>
-          <WinIcon width={14} height={14} />
+          {status === "won" ? (
+            <WinIcon width={14} height={14} />
+          ) : (
+            <NotPlayed />
+          )}
         </View>
         <View style={styles.columnGap}>
           <Text style={styles.selectionText}>{selected}</Text>
           <Text style={styles.bookingsText}>{bookings}</Text>
-          <Text style={styles.teamsText}>{team}</Text>
+          <View style={{ gap: 10, flexDirection: "row", alignItems: "center" }}>
+            <Text style={styles.teamsText}>{team}</Text>
+            {stats === "cashout" && (
+              <Text style={styles.gameTime}>{dateTime}</Text>
+            )}
+          </View>
         </View>
       </View>
       <View>
@@ -60,5 +79,10 @@ const styles = StyleSheet.create({
     fontFamily: "Inter-Regular",
     color: "#fff",
     lineHeight: 18,
+  },
+  gameTime: {
+    fontSize: 11,
+    fontFamily: "Inter-Regular",
+    color: "#fff",
   },
 });

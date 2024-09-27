@@ -17,7 +17,7 @@ export const mockData = [
     ],
     oddsupdated: 5.43,
     odds: 4.83,
-    oddtype: "american",
+    oddtype: "decimal",
   },
   {
     id: "2",
@@ -65,7 +65,7 @@ export const mockData = [
     betOptions: ["Bet Option 1", "Bet Option 2", "Bet Option 3"],
     oddsupdated: 6,
     odds: 5.2,
-    oddtype: "american",
+    oddtype: "decimal",
   },
 ];
 
@@ -110,10 +110,6 @@ export const mlbGameData = [
     ],
   },
 ];
-
-export const betBalance = {
-  balance: formatCurrency(25400),
-};
 
 export function formatCurrency(value) {
   return new Intl.NumberFormat("en-US", {

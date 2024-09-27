@@ -1,23 +1,38 @@
+export const getBetType = (selections, stats) => {
+  const count = selections.length;
+
+  if (count === 1) return stats === "cashout" ? "Single" : "Singles";
+  if (count === 2) return stats === "cashout" ? "Double" : "Doubles";
+  return "Accumulator"; // For 3 or more events
+};
+
 const ticketInfo = {
-  wager: 400,
-  return: 20400,
-  ticketInfo: [
+  wager: 300,
+  returnAmount: 61200,
+  selections: [
     {
-      selectedInfo: "Draw 0-0",
-      bookingsInfo: "Correct Score",
-      odds: 5.1,
-      teamInfo: "Chapecoense v CRB",
+      event: "Gremio v Criciuma",
+      dateTime: "Wed Sep 25 18:00",
+      market: "Correct Score",
+      selection: "Criciuma 2-1",
+      odds: 12.0,
+      status: "won",
     },
     {
-      selectedInfo: "Vila Nova 1-0",
-      bookingsInfo: "Correct Score",
-      odds: 10.0,
-      teamInfo: "Vila Nova PR v America MG",
+      event: "Bragantino v Internacional",
+      dateTime: "Wed Sep 25 18:00",
+      market: "Correct Score",
+      selection: "Draw 2-2",
+      odds: 17.0,
+      status: "won",
     },
   ],
-  status: "won",
-  type: "Doubles",
-  oddtype: "decimal",
+  stats: "settled" /* either cashout or settled */,
+  oddsType: "decimal",
+};
+
+export const betBalance = {
+  balance: formatCurrency(64200),
 };
 
 function formatCurrency(value) {
@@ -54,3 +69,7 @@ function formatNumber(value, formatType = "decimal") {
 }
 
 export { ticketInfo, formatCurrency, formatNumber };
+
+function calReturn() {
+  return;
+}

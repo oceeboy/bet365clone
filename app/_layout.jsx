@@ -19,6 +19,7 @@ const RootLayout = () => {
     "Inter-Bold": require("../assets/fonts/Inter_18pt-Bold.ttf"),
     "Inter-Regular": require("../assets/fonts/Inter_18pt-Regular.ttf"),
     "Inter-ExtraBold": require("../assets/fonts/Inter_18pt-ExtraBold.ttf"),
+    "Inter-Light": require("../assets/fonts/Inter_28pt-Light.ttf"),
   });
 
   useEffect(() => {

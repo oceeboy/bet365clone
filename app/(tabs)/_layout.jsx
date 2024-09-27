@@ -1,6 +1,7 @@
 import { View, Text, Image, StyleSheet } from "react-native";
 import { Tabs, Redirect } from "expo-router";
-import { betBalance, icons } from "../../constants";
+import { icons } from "../../constants";
+import { betBalance, ticketInfo } from "../../modules/mybets/constants";
 
 const TabIcon = ({ icon, color, name, focused }) => {
   return (
@@ -195,12 +196,40 @@ const TabsLayout = () => {
             title: "mybets",
             headerShown: false,
             tabBarIcon: ({ color, focused }) => (
-              <TabIcon
-                icon={focused === true ? icons.activemybets : icons.mybets}
-                color={color}
-                name="My Bets"
-                focused={focused}
-              />
+              <View>
+                <TabIcon
+                  icon={focused === true ? icons.activemybets : icons.mybets}
+                  color={color}
+                  name="My Bets"
+                  focused={focused}
+                />
+                {ticketInfo.stats === "cashout" && (
+                  <View style={{ position: "absolute", right: -2 }}>
+                    <View
+                      style={{
+                        backgroundColor: "#009B6D",
+                        width: 12,
+                        height: 12,
+                        borderRadius: 12 / 2,
+                        paddingHorizontal: 2,
+                        paddingVertical: 1,
+                        justifyContent: "center",
+                        alignItems: "center",
+                      }}
+                    >
+                      <Text
+                        style={{
+                          fontSize: 10,
+                          fontFamily: "Inter-Light",
+                          color: "white",
+                        }}
+                      >
+                        1
+                      </Text>
+                    </View>
+                  </View>
+                )}
+              </View>
             ),
           }}
         />

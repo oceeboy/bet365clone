@@ -2,7 +2,7 @@ import { StyleSheet, Text, View } from "react-native";
 import React from "react";
 import { formatCurrency } from "../constants";
 
-const TicketHeader = ({ wager, type, returned }) => {
+const TicketHeader = ({ wager, type, returned, stats }) => {
   return (
     <View style={styles.container}>
       <View style={styles.rowGap3}>
@@ -11,10 +11,16 @@ const TicketHeader = ({ wager, type, returned }) => {
       </View>
       <View style={styles.rowContainer}>
         <Text style={styles.shareText}>Share</Text>
-        <View style={styles.returnedContainer}>
-          <Text style={styles.returnedText}>{formatCurrency(returned)}</Text>
-          <Text style={styles.returnedText}>Returned</Text>
-        </View>
+        {stats === "cashout" ? (
+          <View style={styles.editContainer}>
+            <Text style={styles.editText}>Edit Bet</Text>
+          </View>
+        ) : (
+          <View style={styles.returnedContainer}>
+            <Text style={styles.returnedText}>{formatCurrency(returned)}</Text>
+            <Text style={styles.returnedText}>Returned</Text>
+          </View>
+        )}
       </View>
     </View>
   );
@@ -64,5 +70,18 @@ const styles = StyleSheet.create({
     fontSize: 11,
     fontFamily: "Inter-Bold",
     color: "#00B383",
+  },
+  editContainer: {
+    paddingHorizontal: 10.5,
+    paddingVertical: 3,
+    borderLeftWidth: 1.25,
+    borderLeftColor: "#494B4A",
+  },
+
+  editText: {
+    fontSize: 12,
+    fontFamily: "Inter-Regular",
+    color: "#00FFB6",
+    textTransform: "capitalize",
   },
 });

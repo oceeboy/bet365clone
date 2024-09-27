@@ -4,9 +4,12 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import MenuBar from "../../components/MenuBar"; // Assuming MenuBar is set up correctly
 import TickeCard from "../../modules/mybets/components/TicketCard";
 import EmptyCard from "../../modules/mybets/components/EmptyCard";
+import { ticketInfo } from "../../modules/mybets/constants";
 
 const MyBetsPage = () => {
   const [title, setTitle] = useState("Cash Out");
+
+  const data = ticketInfo;
 
   const clickedOn = (selected) => {
     setTitle(selected);
@@ -18,10 +21,14 @@ const MyBetsPage = () => {
       case "Cash Out":
         return (
           <View style={styles.betContainer}>
-            <EmptyCard
-              title={empTitle}
-              description="Bets that can be fully or partially cashed out appear here"
-            />
+            {data.stats === "cashout" ? (
+              <TickeCard />
+            ) : (
+              <EmptyCard
+                title={empTitle}
+                description="Bets that can be fully or partially cashed out appear here"
+              />
+            )}
           </View>
         );
       case "Live Now":
@@ -36,25 +43,40 @@ const MyBetsPage = () => {
       case "Unsettled":
         return (
           <View style={styles.betContainer}>
-            <EmptyCard
-              title={empTitle}
-              description="Bets that are unsettled will appear here"
-            />
+            {data.stats === "cashout" ? (
+              <TickeCard />
+            ) : (
+              <EmptyCard
+                title={empTitle}
+                description="Bets that are unsettled will appear here"
+              />
+            )}
           </View>
         );
       case "Settled":
         return (
           <View>
-            <TickeCard />
+            {data.stats === "settled" ? (
+              <TickeCard />
+            ) : (
+              <EmptyCard
+                title={empTitle}
+                description="Bets that are unsettled will appear here"
+              />
+            )}
           </View>
         );
       case "All":
         return (
           <View style={styles.betContainer}>
-            <EmptyCard
-              title={empTitle}
-              description="Bets appear here for 24 hours older bets can be viewed in your Account History"
-            />
+            {data.stats === "settled" ? (
+              <TickeCard />
+            ) : (
+              <EmptyCard
+                title={empTitle}
+                description="Bets appear here for 24 hours older bets can be viewed in your Account History"
+              />
+            )}
           </View>
         );
       default:

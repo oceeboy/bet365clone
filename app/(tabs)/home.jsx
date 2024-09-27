@@ -42,9 +42,9 @@ const HomePage = () => {
       >
         <View style={{ marginBottom: 10 }}>
           {
-            <BannerWelcome />
+            // <BannerWelcome />
 
-            /* <CarouselComp /> */
+            <CarouselComp />
           }
         </View>
         <View style={{ marginTop: 10 }}>

@@ -10,7 +10,8 @@ import { LinearGradient } from "expo-linear-gradient";
 import TicketHeader from "./TicketHeader";
 import TicketFooter from "./TicketFooter";
 import TicketInfo from "./TicketInfo";
-import { ticketInfo } from "../constants";
+import { getBetType, ticketInfo } from "../constants";
+import CashOutFooter from "./CashOutFooter";
 
 const { width } = Dimensions.get("screen");
 const TickeCard = () => {
@@ -27,24 +28,33 @@ const TickeCard = () => {
         <View style={styles.headerContainer}>
           <TicketHeader
             wager={data.wager}
-            type={data.type}
-            returned={data.return}
+            type={getBetType(data.selections, data.stats)}
+            returned={data.returnAmount}
+            stats={data.stats}
           />
         </View>
         <View style={styles.ticketInfoContainer}>
-          {data.ticketInfo.map((item, index) => (
+          {data.selections.map((item, index) => (
             <TicketInfo
               key={index}
-              team={item.teamInfo}
+              team={item.event}
               odds={item.odds}
-              bookings={item.bookingsInfo}
-              selected={item.selectedInfo}
-              oddtype={data.oddtype}
+              bookings={item.market}
+              selected={item.selection}
+              oddtype={data.oddsType}
+              status={item.status}
+              dateTime={item.dateTime}
+              stats={data.stats}
             />
           ))}
         </View>
         <View style={styles.footerContainer}>
-          <TicketFooter wager={data.wager} returned={data.return} />
+          <TicketFooter
+            wager={data.wager}
+            returned={data.returnAmount}
+            stats={data.stats}
+          />
+          {data.stats === "cashout" && <CashOutFooter wager={data.wager} />}
         </View>
       </View>
     </LinearGradient>
@@ -64,6 +74,7 @@ const styles = StyleSheet.create({
     paddingVertical: 11,
     borderTopWidth: 1,
     borderTopColor: "#494B4A",
+    gap: 30,
   },
 
   ticketInfoContainer: {
